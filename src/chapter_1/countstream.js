@@ -9,6 +9,7 @@ class CountStream extends Writable {
 
   _write(chunk, encoding, cb) {
     const matches = chunk.toString().match(this.matcher)
+    // console.log(chunk.toString())
     if (matches) {
       this.count += matches.length
     }

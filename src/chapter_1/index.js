@@ -1,9 +1,12 @@
 import CountStream from './countstream.js'
-import http from 'http'
+import https from 'https'
 
 const countStream = new CountStream('baidu')
+// const countStream = new CountStream('devnode')
 
-http.get('http://www.baidu.com', (res) => {
+// NOTE: 操作百度时，返回的数据不一致
+// https.get('https://devnode.cn', (res) => {
+https.get('https://www.baidu.com', (res) => {
   res.pipe(countStream)
 })
 
