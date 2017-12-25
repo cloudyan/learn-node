@@ -1,6 +1,6 @@
 import assert from 'assert'
-import CountStream from './countstream'
 import fs from 'fs'
+import CountStream from './countstream'
 
 const countStream = new CountStream('example')
 let passed = 0

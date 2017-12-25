@@ -61,4 +61,4 @@ setImmediate 以及 clearImmediate 全局方法接收一个回调参数和可选
 
 传入 process.nextTick 的回调通常在当前事件轮询结束后执行。可以被安全执行的回调数量被 process.maxTickDepth 控制，默认是1000，以允许 I/O 操作可以继续被处理。
 
-NOTE: 这里有点疑问？
+NOTE: 上面这里有点疑问？

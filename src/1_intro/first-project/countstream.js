@@ -1,4 +1,11 @@
 import { Writable } from 'stream'
+// import util from 'util'
+
+// util.inherits(CountStream, Writable)
+// function CountStream(matchText, options) {
+//   Writable.call(this, options)
+//   ...
+// }
 
 class CountStream extends Writable {
   constructor(matchText, options) {
