@@ -11,5 +11,10 @@ client.on('load', () => {
     console.log('write successful')
   })
 
+  client.del('bar', (err) => {
+    if (err) return console.error(err)
+    console.log('del bar success')
+  })
+
   client.del('baz')
 })

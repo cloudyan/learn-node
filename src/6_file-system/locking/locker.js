@@ -21,7 +21,7 @@ function lock(cb) {
     if (err) return cb(err)
 
     // 写入 PID，以便调试
-    fs.writeFile(lockDir + '/' + process.pid, (error) => {
+    fs.writeFile(`${lockDir}/${process.pid}`, (error) => {
       // 无法写入 PID，并非世界末日：打印错误，继续运行
       if (error) console.error(error)
       hasLock = true
@@ -32,7 +32,7 @@ function lock(cb) {
 
 function unlock(cb) {
   if (!hasLock) return cb()
-  fs.unlink(lockDir + '/' + process.pid, (err) => {
+  fs.unlink(`${lockDir}/${process.pid}`, (err) => {
     if (err) return cb(err)
 
     fs.rmdir(lockDir, (error) => {
@@ -45,7 +45,7 @@ function unlock(cb) {
 
 process.on('exit', () => {
   if (hasLock) {
-    fs.unlinkSync(lockDir + '/' + process.pid)
+    fs.unlinkSync(`${lockDir}/${process.pid}`)
     fs.rmdirSync(lockDir)
     console.log('removed lock')
   }
