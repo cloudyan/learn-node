@@ -11,19 +11,29 @@
 // 要了解更多实现独占模式的方法，可以参看第三方模块 [lockfile](https://github.com/isaacs/lockfile)
 
 import fs from 'fs'
+// import path from 'path'
 
 let hasLock = false
 const lockDir = 'config.lock'
 
+// 要解决一个问题，就是在使用时，锁文件在哪个位置建立是最合适的，应该在被操作的那个文件的位置？
+// const lockName = './config.lock'
+// const lockDir = resolve(lockName)
+
+// function resolve(file) {
+//   return path.resolve(__dirname, file)
+// }
+
+// [DEP0013] DeprecationWarning: Calling an asynchronous function without callback is deprecated.
 function lock(cb) {
   if (hasLock) return cb()
   fs.mkdir(lockDir, (err) => {
     if (err) return cb(err)
 
     // 写入 PID，以便调试
-    fs.writeFile(`${lockDir}/${process.pid}`, (error) => {
+    fs.writeFile(`${lockDir}/${process.pid}`, (er) => {
       // 无法写入 PID，并非世界末日：打印错误，继续运行
-      if (error) console.error(error)
+      if (er) console.error(er)
       hasLock = true
       return cb()
     })

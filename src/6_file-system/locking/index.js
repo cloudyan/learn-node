@@ -1,3 +1,6 @@
+
+// babel-node ./locking/index.js
+
 import locker from './locker'
 
 locker.lock((err) => {
@@ -5,8 +8,9 @@ locker.lock((err) => {
   console.log('locked')
 
   // 这里是修改操作 ...
+  console.log('do samething...')
 
-  locker.unlock(() => {
-    console.log('unlocked')
-  })
+  // locker.unlock(() => {
+  //   console.log('unlocked')
+  // })
 })
