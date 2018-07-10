@@ -1,4 +1,4 @@
-
+// 二进制文件转换为JSON
 // babel-node buffers.js
 
 import fs from 'fs'
