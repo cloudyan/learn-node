@@ -19,6 +19,7 @@ musicPlayer.on('stop', function () {
   this.playing = false
 })
 
+// 可以添加多个监听器
 musicPlayer.on('play', (track) => {
   console.log('Track now playing:', track)
 })

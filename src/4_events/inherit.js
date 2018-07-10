@@ -2,6 +2,7 @@ import { EventEmitter } from 'events'
 // const events = require('events')
 // const util = require('util')
 
+// 音频设备
 const AudioDevice = {
   play(track) {
     // Stub: Trigger playback through iTunes, mpg123, etc.
@@ -20,6 +21,7 @@ const AudioDevice = {
 
 // util.inherits(MusicPlayer, events.EventEmitter)
 
+// 音乐播放器
 class MusicPlayer extends EventEmitter {
   constructor() {
     super()
