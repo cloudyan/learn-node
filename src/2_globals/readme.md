@@ -6,6 +6,30 @@
 - 什么时候使用这个？如何使用？
 - 这些全局变量有什么特点，对比其他语言的，你能想到什么？
 
+- process 用来与操作系统通信
+- Buffer 类
+- exports 对象，作用域是在一个模块中
+- __dirname __filename 路径变量
+- 标准 I/O 以及 console 对象
+  - stdin、stdout 以及 stderr
+  - log warn info error
+  - time timeEnd
+  - arch platform 获取平台信息 memoryUsage
+    - rss 常驻内存大小
+    - heapTotal 动态分配的可用内存
+    - heapUsed 已经使用的堆大小
+  - argv (optimist commander)
+  - exit
+
+process 对象是一个 EventEmitter 对象。
+
+标准 I/O：标准流总共有3个，stdin、stdout 以及 stderr。在 UNIX 终端中，它们被数字代表。0代表输入流，1代表输出流，2代表错误。这也适用于 Windows。
+
+> 要判断 node 加载了那个模块，可以通过 `require.resolve(id)`。这将返回文件的绝对路径。
+> 卸载模块，可以使用 `delete require.cache(require.resolve('./myclass'))` 返回 true，代表模块被卸载了
+
+Node 在加载模块时，默认找 package.json（main 属性），如果没有，就去找 index.js
+
 ## 补充说明
 
 示例使用补充
@@ -15,15 +39,13 @@
 - 变量注入可以使用以下占位符，在变量注入位置前会自动添加一个空格
 - 消息内容的格式化是通过 util.format 实现，支持以下格式
 
+格式占位符
+
 占位符 | 类型 | 例子
 ------|-----|-----
 %s | String | '%s', 'value'
 %d | Number | '%f', 3.14
 %j | JSON   | '%j', { name: 'alex }
-
-process 对象是一个 EventEmitter 对象。
-
-标准流总共有3个，stdin、stdout 以及 stderr。在 UNIX 终端中，它们被数字代表。0代表输入流，1代表输出流，2代表错误。这也适用于 Windows。
 
 ## 基准测试 arguments-benchmark.js
 
@@ -50,10 +72,10 @@ babel-node arguments-benchmark.js -h
 
 ## 退出程序 process.exit()
 
-Node 程序默认返回0的退出状态。这意味着程序正常终止。任何非0状体码被认为是一个错误
+Node 程序默认返回0的退出状态。这意味着程序正常终止。任何非0状体码被认为是一个错误。
 
-- UNIX 中，可以通过 $? 在 shell 中获取状态码
-- Windows 中，可以通过 %errorlevel% 获取
+- UNIX 中，可以通过 `$?` 在 shell 中获取状态码
+- Windows 中，可以通过 `%errorlevel%` 获取
 
 ## 安全的操作异步接口
 

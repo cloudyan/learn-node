@@ -1,5 +1,5 @@
 
-// 使用 process.exit 返回正确的退出状态
+// 使用 process.exit 返回正确的退出状态码
 // 运行代码之后，执行 echo $?，在终端中将显示 1（0以外的数字都表示错误发生）
 // babel-node arguments-status-code.js -r
 // echo $?

@@ -1,3 +1,5 @@
+// 从一个Node程序导入或导出数据
+
 // Run with:
 //   cat file.txt | node process.js
 

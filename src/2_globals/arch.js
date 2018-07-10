@@ -1,3 +1,7 @@
+// 获取平台信息
+
+// 基于系统架构的分支
+
 switch (process.arch) {
   case 'x64':
     require('./lib.x64.node')

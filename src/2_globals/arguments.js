@@ -1,4 +1,4 @@
-// 操作命令行参数 process.argv
+// 操作、传递命令行参数 process.argv
 // babel-node arguments.js -r arguments.js
 // babel-node arguments.js -h
 
