@@ -13,5 +13,6 @@ countStream.on('total', (count) => {
 fs.createReadStream(__filename).pipe(countStream)
 
 process.on('exit', () => {
-  console.log('Assertions passed:', passed)
+  // console.log('Assertions passed:', passed)
+  console.log('断言通过:', passed)
 })

@@ -1,3 +1,5 @@
+// 使用流
+
 import CountStream from './countstream.js'
 import https from 'https'
 

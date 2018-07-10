@@ -7,6 +7,12 @@ import { Writable } from 'stream'
 //   ...
 // }
 
+/**
+ * 一个用于计数的可写流
+ *
+ * @class CountStream
+ * @extends {Writable}
+ */
 class CountStream extends Writable {
   constructor(matchText, options) {
     super(options)
@@ -23,6 +29,7 @@ class CountStream extends Writable {
     cb()
   }
 
+  // Node 的 Writable 基类会调用 end 方法
   end() {
     this.emit('total', this.count)
   }
