@@ -1,0 +1,11 @@
+{
+  "groups": {
+    "default": {
+      "packages": [
+        "package.json",
+        "src/1_intro/first-project/package.json",
+        "src/2_globals/package.json"
+      ]
+    }
+  }
+}
