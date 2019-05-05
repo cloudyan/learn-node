@@ -1,0 +1,102 @@
+// 重写样式
+
+body
+  overflow-y scroll
+
+// .navbar,
+// .sidebar,
+// .sidebar-mask,
+// .page-edit,
+// .header-anchor
+//   display none
+
+// 设置代码段超出换行
+.content pre,
+.content pre[class*=language-]
+  word-break break-all
+  white-space pre-wrap
+
+div[class~="language-code"]:before
+  content "code"
+
+.toasted-container.compatibility-notification
+  &.top-right
+    right 4vw
+  .toasted
+    font-weight 400
+    width 400px
+    background-color $accentColor
+    padding 20px 20px
+    line-height 1.5
+    display block
+    box-shadow 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.3)
+    .action.ripple
+      border 1px solid #fff
+      color #fff
+      float right
+      white-space nowrap
+      margin 0
+    code
+      text-decoration underline
+
+@media (max-width: $MQMobile)
+  .toasted-container.compatibility-notification
+    &.top-right
+      right 5vw
+    .toasted
+      width 80vw
+
+// list-style-type circle // 空心圆
+// list-style-type disc   // 实心圆
+// list-style-type square // 实心方块
+// list-style-type cjk-ideographic // 一.
+// list-style-type decimal // 1.
+// list-style-type decimal-leading-zero // 01.
+// list-style-type lower-alpha // a.
+// list-style-type lower-greek // α. β.
+// list-style-type lower-latin // a.
+// list-style-type lower-roman // i. ii.
+// list-style-type upper-alpha // A.
+// list-style-type upper-greek // 1.
+// list-style-type upper-latin // A.
+// list-style-type upper-roman // I.
+// list-style-type none
+// list-style-type inherit // 实心圆
+strong,
+.B,
+.B-all
+  font-weight bold !important
+
+.ul-custom
+  ul
+    list-style none
+    li > p:nth-of-type(1)
+      margin-left -1.2em
+
+
+.ul-1-a
+  ul
+    list-style decimal // 1.
+    ul
+      list-style: lower-latin // a.
+      ul
+        list-style none
+        padding-left 0
+
+.ul-d1-1
+  ul
+    list-style cjk-ideographic // 一.
+    ul
+      list-style decimal // 1.
+      ul
+        list-style none
+        padding-left 0
+
+.ul-1-i
+  ul
+    list-style decimal // 1.
+    ul
+      list-style: lower-roman; // i. ii.
+      ul
+        list-style none
+        padding-left 0

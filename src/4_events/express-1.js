@@ -8,6 +8,7 @@ app.on('hello-alert', () => {
 })
 
 app.get('/', (req, res) => {
+  // res.app 可以拿到 app 对象
   res.app.emit('hello-alert')
   res.send('hello world')
 })
